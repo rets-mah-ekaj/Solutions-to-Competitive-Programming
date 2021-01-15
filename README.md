@@ -1,5 +1,5 @@
-# Codeforces-Solutions
-Solutions of Codeforces Practice Questions
+# Solutions to Competitive Programming
+Solutions of Practice Questions from various platforms. At present, I am just working on Codeforces.
 
 Hi geeks!
 I know that this is pretty common that Coders out there submit their code on the platform and upload a copy on Github.
