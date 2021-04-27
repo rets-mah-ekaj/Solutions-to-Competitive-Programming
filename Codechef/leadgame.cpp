@@ -6,19 +6,27 @@ int main() {
   cin.tie(NULL);
   cout.tie(NULL);
 
-  int n, maxi = 0, leader, s, t;
+  int n, maxi = 0, diff = 0, w = 0, p1_total = 0, p2_total = 0, s, t;
   cin >> n;
   while (n--) {
     cin >> s >> t;
-    if (s > t && maxi < s - t) {
-      leader = 1;
-      maxi = s - t;
+    p1_total += s;
+    p2_total += t;
+    if (p1_total > p2_total) {
+      diff = p1_total - p2_total;
+      if (diff > maxi) {
+        maxi = diff;
+        w = 1;
+      }
     }
-    else if (t > s && maxi < t - s) {
-      leader = 2;
-      maxi = t - s;
+    else {
+      diff = p2_total - p1_total;
+      if (diff > maxi) {
+        maxi = diff;
+        w = 2;
+      }
     }
   }
-  cout << leader << ' ' << maxi;
+  cout << w << ' ' << maxi << '\n';
   return 0;
 }
