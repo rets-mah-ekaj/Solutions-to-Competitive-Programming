@@ -1,27 +1,26 @@
 #include<bits/stdc++.h>
 using namespace std;
+#define ll long long
 
 int main() {
   ios_base::sync_with_stdio(false);
   cin.tie(NULL);
   cout.tie(NULL);
 
-  int t, n, m;
+  ll t, n, m;
   cin >> t;
   while (t--) {
     cin >> n >> m;
-    vector < pair <int, int> > v;
-    for (int i = 1; i < n; ++i) {
-      for (int j = i + 1; j <= n; ++j) {
-        if (((m % i) % j) == ((m % j) % i)) {
-          pair <int, int> p;
-          p.first = i;
-          p.second = j;
-          v.push_back(p);
-        }
-      }
+    ll count = 0;
+    vector <ll> v(n + 1, 1);
+
+    for (ll i = 2; i <= n; ++i) {
+      ll a = m % i;
+      count += v[a];
+      for (ll j = a; j <= n; j += i)
+        ++v[j];
     }
-    cout << v.size() << '\n';
+    cout << count << '\n';
   }
   return 0;
 }
